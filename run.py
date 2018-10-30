@@ -34,19 +34,19 @@ api_hash = '3ad19da000be0e616ead7455be03b42b'
 # ch25 = 'https://t.me/joinchat/EJzxUkaUaN34zcjiiPBfXQ'
 # ch26 = 'https://t.me/joinchat/EJzxUk_ZZjp4SinHw3-rwQ'
 #тестовые чаты
-# chat = 'https://t.me/joinchat/LWuqAlgRV3mDiuH3uYyB_Q'
-# chat2 = 'https://t.me/joinchat/LWuqAhKU-7wKy_P_e1sNTA'
+chat = 'https://t.me/joinchat/LWuqAlgRV3mDiuH3uYyB_Q'
+chat2 = 'https://t.me/joinchat/LWuqAhKU-7wKy_P_e1sNTA'
 
 client = TelegramClient('current-session', api_id, api_hash)
 print('Подключение...')
-@client.on(events.NewMessage())#chats=(chat, chat2, ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8,
+@client.on(events.NewMessage(chats=(chat, chat2)))#chats=(chat, chat2, ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8,
 #ch9, ch10, ch11, ch12, ch13, ch14, ch15, ch16, ch17, ch18, ch19, ch20, ch21, ch22, ch23,
 #ch24, ch25, ch26)))
 async def normal_handler(event):
     date = event.message.to_dict()['date']
     user = users[event.message.to_dict()['from_id']]
     message = event.message.to_dict()['message']
-
+    client.send_message('rozalski', 'Message from heroku')
     result = bool(re.search('[\u0627-\u064a]', message))
     print('[{}] {} : {} | {}'.format(date, user, message, result))
 client.start()
