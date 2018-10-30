@@ -46,7 +46,6 @@ async def normal_handler(event):
     date = event.message.to_dict()['date']
     user = users[event.message.to_dict()['from_id']]
     message = event.message.to_dict()['message']
-    client.send_message('rozalski', 'Message from heroku')
     result = bool(re.search('[\u0627-\u064a]', message))
     print('[{}] {} : {} | {}'.format(date, user, message, result))
 client.start()
