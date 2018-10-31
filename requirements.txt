@@ -1,5 +1,4 @@
 async-generator==1.10
-langdetect==1.0.7
 pyaes==1.6.1
 pyasn1==0.4.4
 rsa==4.0

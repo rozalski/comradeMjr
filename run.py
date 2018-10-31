@@ -1,7 +1,7 @@
 #!./env/bin/python3.5
 from telethon import TelegramClient, sync, events
 import sys, re
-from langdetect import detect
+# from langdetect import detect
 api_id = 508152
 api_hash = '3ad19da000be0e616ead7455be03b42b'
 #chat = '-1001389028016'
