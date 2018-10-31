@@ -1,4 +1,3 @@
-#!./env/bin/python3.5
 from telethon import TelegramClient, sync, events
 import sys, re
 # from langdetect import detect
