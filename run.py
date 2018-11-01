@@ -10,14 +10,14 @@ client = TelegramClient('current-session', api_id, api_hash)
 print('Подключение...')
 @client.on(events.NewMessage(incoming=True, outgoing=True))
 async def normal_handler(event):
-    date = event.message.to_dict()['date']
+    #date = event.message.to_dict()['date']
     # user = users[event.message.to_dict()['from_id']]
     message = event.message.to_dict()['message']
     # print(message)
     if(bool(re.search('[\u0627-\u064a]', message))):
         #result = 'Содержит арабский'
         await event.delete()
-    else:
+#    else:
         #result = 'Нет арабского'
     #print('[{}] {} : {}'.format(date, message, result))
 client.start()
