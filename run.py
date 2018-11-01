@@ -15,11 +15,11 @@ async def normal_handler(event):
     message = event.message.to_dict()['message']
     # print(message)
     if(bool(re.search('[\u0627-\u064a]', message))):
-        #result = 'Содержит арабский'
+        result = 'Содержит арабский'
         await event.delete()
-#    else:
-        #result = 'Нет арабского'
-    #print('[{}] {} : {}'.format(date, message, result))
+    else:
+        result = 'Нет арабского'
+    print('[{}] {} : {}'.format(date, message, result))
 client.start()
 if not client.is_user_authorized():
     try:
