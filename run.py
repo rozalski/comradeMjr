@@ -23,7 +23,7 @@ async def normal_handler(event):
 client.start()
 if not client.is_user_authorized():
     try:
-        client.send_code_request(phone) #при первом запуске - раскомментить,
+        #client.send_code_request(phone) #при первом запуске - раскомментить,
         #после авторизации для избежания FloodWait советую закомментить
         print('Sending a code...')
         client.sign_in(phone, input('Enter code: '))
