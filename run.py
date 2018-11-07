@@ -1,7 +1,8 @@
 #!./env/bin/python3.5
 from telethon import TelegramClient, sync, events # для получения сообщений
 import sys, re
-
+# https://my.telegram.org/auth?to=apps регистрация приложения телеграм
+# https://telegram.org/support писать на разбан
 api_id = 508152
 api_hash = '3ad19da000be0e616ead7455be03b42b'
 phone = '+79154103557'
@@ -10,10 +11,11 @@ client = TelegramClient('current-session', api_id, api_hash)
 print('Подключение...')
 @client.on(events.NewMessage(incoming=True, outgoing=True))
 async def normal_handler(event):
+    if event.document:
+        if(event.document.to_dict()['mime_type'] == 'application/vnd.android.package-archive'):
+            await event.delete()
     date = event.message.to_dict()['date']
-    # user = users[event.message.to_dict()['from_id']]
     message = event.message.to_dict()['message']
-    # print(message)
     if(bool(re.search('[\u0627-\u064a]', message))):
         result = 'Содержит арабский'
         await event.delete()
